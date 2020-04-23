@@ -171,16 +171,19 @@ void CMarketingNumberGeneratorDlg::OnBnClickedButtonDo()
 
 	CString  op;
 	CString comb;
-	
+		
 	comb = keyWord + event; // 复用的词组
 	
-	op = comb + _T("是怎么回事呢？") + \
-	keyWord + _T("相信大家都很熟悉，但是") + \
-	comb + _T("是怎么回事呢？下面就让小编带大家一起了解吧.")\
-	_T("为何") + comb + _T("其实就是") + cause + \
-	_T(",大家可能会很惊讶") + keyWord +_T("怎么会") + event + \
-	+ _T("但事实就是如此，小编也感到十分惊讶.")+ \
-	_T("这就是关于") + comb + _T("的事情了,大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！");
+	if ( !( comb.IsEmpty() && cause.IsEmpty() ) ) // 检测输入是否为空
+	{
+		op = comb + _T("是怎么回事呢？") + \
+			keyWord + _T("相信大家都很熟悉，但是") + \
+			comb + _T("是怎么回事呢？下面就让小编带大家一起了解吧.")\
+			_T("为何") + comb + _T("其实就是") + cause + \
+			_T(",大家可能会很惊讶") + keyWord + _T("怎么会") + event + \
+			+ _T("但事实就是如此，小编也感到十分惊讶.") + \
+			_T("这就是关于") + comb + _T("的事情了,大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！");
+	}
 	
 	output.SetWindowTextW(op); // 设置生成编辑框的内容
 
